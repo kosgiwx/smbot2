@@ -195,7 +195,7 @@ bot.on("message", async message => {
 
 });
 
-bot.login('NTAxNzY3MDg3NDYzNzI3MTE0.DqeKkA.X9f85F8phGe_2IHAbGq_YYOzLOA');
+bot.login(process.env.token);
 function formatConsoleMessage(message) {
     return message.cleanContent.replace(new RegExp('\n', 'g'), '\n\t');
 }
