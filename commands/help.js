@@ -1,8 +1,8 @@
 const discord = require("discord.js");
 const config = require('../config.json');
-if(!message.guild.author.hasPermission("ADMINISTRATOR"))
-{
-    return message.channel.send(`권한 팔아먹음?`);
+if(!message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name))
+   {
+      return message.reply("당신의 권한 대체되었다. yourmom");
 }
 module.exports.run = async (bot, message, args) => {
     message.channel.send(`!ban 밴할놈 사유`);
