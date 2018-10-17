@@ -1,6 +1,9 @@
 const discord = require("discord.js");
 const config = require('../config.json');
-
+if(!message.guild.author.hasPermission("ADMINISTRATOR"))
+{
+    message.channel.send(`권한 팔아먹음?`);
+}
 module.exports.run = async (bot, message, args) => {
     message.channel.send(`!ban 밴할놈 사유`);
     message.channel.send(`!kick 킥할놈 사유`);
