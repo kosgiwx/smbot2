@@ -1,6 +1,6 @@
 const discord = require("discord.js");
 const config = require('../config.json');
-if(!message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name))
+if(!message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name)) )
    {
       return message.reply("당신의 권한 대체되었다. yourmom");
 }
