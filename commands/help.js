@@ -1,7 +1,7 @@
 const discord = require("discord.js");
 const config = require('../config.json');
 module.exports.run = async (bot, message, args) => {
-if(!message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name)) ){
+if(message.author.hasPermission('MANAGE_CHANNELS'){
       return message.reply("당신의 권한 대체되었다. yourmom");
 }
    
@@ -20,3 +20,4 @@ module.exports.run = async (bot, message, args) => {
 module.exports.help = {
     name: 'help'
 };
+// message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name))
