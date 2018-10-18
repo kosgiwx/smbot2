@@ -71,9 +71,27 @@ bot.on('guildMemberRemove', function(guild, user) {
       log.sendMessage('누군가 나갔습니다......' + user);
 
 });
+//user in a guild has been updated
+bot.on('guildMemberUpdate', function(guild, oldMember, newMember) {
 
+  //declare changes
+  var Changes = {
+      unknown: 0,
+      addedRole: 1,
+      removedRole: 2,
+      username: 3,
+      nickname: 4,
+      avatar: 5
+  };
+  
+  
+  
+  var change = Changes.unknown;
 
-    var removedRole = '';
+  
+  
+  
+      var removedRole = '';
     oldMember.roles.every(function(value) {
         if(newMember.roles.find('id', value.id) == null) {
             change = Changes.removedRole;
@@ -90,20 +108,8 @@ bot.on('guildMemberRemove', function(guild, user) {
         }
     });
 
-//user in a guild has been updated
-bot.on('guildMemberUpdate', function(guild, oldMember, newMember) {
-
-  //declare changes
-  var Changes = {
-      unknown: 0,
-      addedRole: 1,
-      removedRole: 2,
-      username: 3,
-      nickname: 4,
-      avatar: 5
-  };
-  var change = Changes.unknown;
-
+  
+  
   //check if username changed
   if(newMember.user.username != oldMember.user.username)
       change = Changes.username;
