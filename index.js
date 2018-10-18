@@ -9,6 +9,8 @@ const bot = new discord.Client({disableEveryone: true});
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is ready for action!`); 
 });
+
+//
 bot.on('messageDelete', function(message) {
 
   if(message.channel.type == 'text') {
