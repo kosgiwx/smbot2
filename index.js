@@ -84,24 +84,6 @@ bot.on('guildMemberUpdate', function(guild, oldMember, newMember) {
   };
   var change = Changes.unknown;
 
-  //check if roles were removed
-  var removedRole = '';
-  oldMember.roles.every(function(value) {
-      if(newMember.roles.find('id', value.id) == null) {
-          change = Changes.removedRole;
-          removedRole = value.name;
-      }
-  });
-
-  //check if roles were added
-  var addedRole = '';
-  newMember.roles.every(function(value) {
-      if(oldMember.roles.find('id', value.id) == null) {
-          change = Changes.addedRole;
-          addedRole = value.name;
-      }
-  });
-
   //check if username changed
   if(newMember.user.username != oldMember.user.username)
       change = Changes.username;
