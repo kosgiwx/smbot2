@@ -3,12 +3,12 @@ const config = require('../config.json');
 module.exports.run = async (bot, message, args) => {
       
 let ADMIN = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-if(ADMIN.hasPermission('MANAGE_CHANNELS'))
+if(message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name)))
       {
       return message.reply("당신의 권한 대체되었다. yourmom");
       }
       
-if(!message.member.hasPermission('MANAGE_CHANNELS'))
+if(!message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name)))
       {
       return message.reply("당신의 권한 애초에 없었다. yourmom");
       }
